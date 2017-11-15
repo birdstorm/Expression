@@ -46,8 +46,8 @@ struct Expression {
         }
         inline Bool operator || (const Bool &rhs) const {
             if (ans == Undefined)
-                return rhs;
-            return (rhs.ans == Undefined) ? *this : Bool(ans == True || rhs.ans == True);
+                return *this;
+            return (rhs.ans == Undefined) ? rhs : Bool(ans == True || rhs.ans == True);
         }
         inline Bool operator == (const Bool &rhs) const {
             return (ans == Undefined || rhs.ans == Undefined) ? Bool(True) : Bool(ans == rhs.ans);
